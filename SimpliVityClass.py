@@ -209,7 +209,7 @@ class SimpliVity:
         if name: 
             url = self.url+'omnistack_clusters?show_optional_fields=true&name='+name
         else:
-            url = self.url+'omnistack_clusters?show_optional_field=true'
+            url = self.url+'omnistack_clusters?show_optional_fields=true'
         return (requests.get(url,verify=False,headers=headers)).json()        
        
     def GetClusterId(self, name):
