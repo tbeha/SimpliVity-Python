@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Python Class Library for the HPE SimpliVity Rest API
+Python Class Library for the HPE SimpliVity Rest API v 2.0
 
-Copyright (c) 2019 Thomas Beha 
-    Version: Sep 19 2019
+Copyright (c) 2019 Thomas Beha
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -60,7 +59,7 @@ class SimpliVity:
 
     def GetCertificate(self):
         headers = {'Authorization':  'Bearer ' + self.access_token, 'Accept' : 'application/vnd.simplivity.v1.9+json'}
-        response = requests.get(self.url+'certificates',verify=False,headers=headers).json()
+        response = requests.get(self.url+'certificates',verify=False,headers=headers)
         if(response.status_code == 200):
             return response.json()
         else:
@@ -166,14 +165,14 @@ class SimpliVity:
 
     def GetVMId(self, vmname):
         x = self.GetVM(vmname)['virtual_machines']
-        for i in range(len(x)):
-            z = x[i]
+        for z in x: 
             if z['state'] == 'ALIVE':
-                return z['id']            
-        return(0)
+                return z['id']                  
+        raise SvtError('SimpliVity.GetVMId', 555, 'VM '+vmname+' is not ALIVE' )
     
     def GetVMMetric(self, vmname, timerange='43200', resolution='Minute', timeOffset='0'):
-        headers = {'Authorization':  'Bearer ' + self.access_token, 'Accept' : 'application/vnd.simplivity.v1.7+json'}        
+        headers = {'Authorization':  'Bearer ' + self.access_token, 'Accept' : 'application/vnd.simplivity.v1.7+json'}
+        vmid=self.GetVMId(vmname)        
         url = self.url +'virtual_machines/'+self.GetVMId(vmname)+'/metrics?range='+timerange+'&resolution='+resolution+'&offset='+timeOffset+'&show_optional_fields=true'
         response = requests.get(url,verify=False,headers=headers)
         if(response.status_code == 200):
