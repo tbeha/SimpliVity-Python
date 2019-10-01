@@ -156,8 +156,7 @@ class SimpliVity:
             url = self.url+'virtual_machines?show_optional_fields=true&name='+vmname
         else:
             url = self.url+'virtual_machines?show_optional_field=true'
-        response = requests.get(url,verify=False,headers=headers)
-        tmp = response.json()        
+        response = requests.get(url,verify=False,headers=headers)      
         if(response.status_code == 200):
             return response.json()
         else:
@@ -171,8 +170,7 @@ class SimpliVity:
         raise SvtError('SimpliVity.GetVMId', 555, 'VM '+vmname+' is not ALIVE' )
     
     def GetVMMetric(self, vmname, timerange='43200', resolution='Minute', timeOffset='0'):
-        headers = {'Authorization':  'Bearer ' + self.access_token, 'Accept' : 'application/vnd.simplivity.v1.7+json'}
-        vmid=self.GetVMId(vmname)        
+        headers = {'Authorization':  'Bearer ' + self.access_token, 'Accept' : 'application/vnd.simplivity.v1.7+json'}       
         url = self.url +'virtual_machines/'+self.GetVMId(vmname)+'/metrics?range='+timerange+'&resolution='+resolution+'&offset='+timeOffset+'&show_optional_fields=true'
         response = requests.get(url,verify=False,headers=headers)
         if(response.status_code == 200):
@@ -280,7 +278,7 @@ class SimpliVity:
         headers = {'Authorization':  'Bearer ' + self.access_token, 'Accept' : 'application/vnd.simplivity.v1.7+json'}        
         headers['Content-Type'] = "application/vnd.simplivity.v1.7+json"         
         body = '{"policy_id":"'+ self.GetPolicyId(policy) +'"}'
-        respones = requests.post(self.url+'datastores/'+self.GetDataStoreId(name)+'/set_policy',data=body, verify=False, headers=headers)
+        response = requests.post(self.url+'datastores/'+self.GetDataStoreId(name)+'/set_policy',data=body, verify=False, headers=headers)
         if(response.status_code == 200):
             return response.json()
         else:
