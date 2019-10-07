@@ -7,7 +7,7 @@ svtpassword="We95sms!!"
 
 try:    
     svt = SimpliVity(url)
-    svt.connect(svtuser,svtpassword)
+    svt.Connect(svtuser,svtpassword)
 
     # response = svt.GetCertificate()
     response = svt.GetHost()

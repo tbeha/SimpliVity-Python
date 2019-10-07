@@ -74,15 +74,6 @@ class SimpliVity:
         else:
             raise SvtError('doPost '+url,response.status_code,response.json())        
 
-    """def doPostData(self, url, body):
-        headers = self.headers
-        headers['Content-Type'] = "application/vnd.simplivity.v1.9+json"
-        response = requests.post(url,data=body, verify=False, headers=headers)
-        if(response.status_code == 200):
-            return response.json()
-        else:
-            raise SvtError('doPostData '+url,response.status_code,response.json())         
-    """
     def doDelete(self, url):
         response = requests.delete(url, verify=False, headers=self.headers)
         if(response.status_code == 200):
@@ -90,7 +81,7 @@ class SimpliVity:
         else:
             raise SvtError('doDelete '+url,response.status_code,response.json())
 
-    def connect(self, hms_username, hms_password):
+    def Connect(self, hms_username, hms_password):
         response = requests.post(self.url+'oauth/token', auth=('simplivity', ''), verify=False, data={
                 'grant_type':'password',
                 'username':hms_username,
