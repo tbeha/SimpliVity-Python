@@ -1,8 +1,8 @@
 from SimpliVityClass import *
 
-url="https://10.0.40.15/api/"
-svtuser="behat@demo.local"
-svtpassword="We95sms!!"
+url="x"
+svtuser="x"
+svtpassword="x" 
 
 
 try:    
