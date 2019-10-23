@@ -69,14 +69,14 @@ class SimpliVity:
             response = requests.post(url,data=body, verify=False, headers=headers)
         else:
             response = requests.post(url, verify=False, headers=self.headers)
-        if(response.status_code == 200):
+        if((response.status_code == 200) or (response.status_code == 201) or (response.status_code == 202)):
             return response.json()
         else:
             raise SvtError('doPost '+url,response.status_code,response.json())        
 
     def doDelete(self, url):
         response = requests.delete(url, verify=False, headers=self.headers)
-        if(response.status_code == 200):
+        if((response.status_code == 200) or (response.status_code == 201) or (response.status_code == 202)):
             return response.json()
         else:
             raise SvtError('doDelete '+url,response.status_code,response.json())

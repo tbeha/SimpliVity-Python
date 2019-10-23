@@ -1,8 +1,8 @@
 from SimpliVityClass import *
 
-url="x"
-svtuser="x"
-svtpassword="x" 
+url="https://10.0.40.15/api/"
+svtuser="abehat@demo.local"
+svtpassword="Gh64tame!" 
 
 
 try:    
@@ -10,20 +10,24 @@ try:
     svt.Connect(svtuser,svtpassword)
 
     # response = svt.GetCertificate()
+    """
     response = svt.GetHost()
     for x in response['hosts']:
         print(x['name'], x['model'], x['id'])
         print(svt.GetHostId(x['name']))
         result = svt.GetHostMetrics(x['name'],timerange='3600',resolution='Minute')
         result = svt.GetHostHardware(x['name'])
+    """
     response = svt.GetVM()
     for x in response['virtual_machines']:
         print(x['name'], x['state'], x['datastore_name'], x['id'])
+        """
         print( svt.GetVMId(x['name']) )
         result = svt.GetVMMetric(x['name'],timerange='3600',resolution='Minute')
         if x['state'] == 'ALIVE':
             print(svt.GetVMLastBackup(x['name']))
-
+        """
+        
     response = svt.GetDataStore()
     for x in response['datastores']:
         print(x['name'], x['id'])
