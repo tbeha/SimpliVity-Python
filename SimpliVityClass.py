@@ -245,6 +245,13 @@ class SimpliVity:
     def SetClusterTimeZone(self, name, timezone):      
         body = '{"time_zone":"'+ timezone +'"}'
         return self.doPost(self.url+'omnistack_clusters/set_time_zone', body)
+
+    def GetClusterGroup(self):
+        return self.doGet(self.url+'cluster_groups')
+
+    def RenameClusterGroup(self, name, clustergroup_id):      
+        body = '{"cluster_group_name":"'+ name +'"}'
+        return self.doPost(self.url+'cluster_groups/'+clustergroup_id+'/rename', body)    
     
     """ Backup & Restore #####################################################################"""
         
