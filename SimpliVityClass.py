@@ -101,16 +101,19 @@ class SimpliVity:
     
     """ Certificate Operations ########################################################################"""
 
-    def GetCertificate(self):
-        return self.doGet(self.url+'certificates')
+    def GetCertificate(self, certid = None):
+        if certid:
+            return self.doGet(self.url+'certificates/'+certid)
+        else:
+            return self.doGet(self.url+'certificates')
 
     def PostCertificate(self, certificate):
         print("PostCertificate is not yet implemented")
-        return 0
+        body = '{"certificate":"'+certificate+'"}'
+        return self.doPost(self.url+'certificates', body)
 
     def DeleteCertificate(self, certid):
-        print("DeleteCertificate is not yet implemented")
-        return 0
+        return self.doDelete(self.url+'certificates/'+certid)
     
     """ Host Operations ########################################################################"""
     
