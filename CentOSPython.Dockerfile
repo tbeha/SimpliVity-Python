@@ -8,9 +8,10 @@ LABEL copyright="Thomas Beha, 2020"
 LABEL license="GNU General Public License v3"
 LABEL DESCRIPTION="CTC SimpliVity Python container based on Ubuntu"
 # Install Python 3.6
-RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+#RUN yum install -y https://centos7.iuscommunity.org/ius-release-el7.rpm
 RUN yum update -y
-RUN yum install -y python36u python36u-libs python36u-devel python36u-pip
+#RUN yum install -y python36u python36u-libs python36u-devel python36u-pip
+RUN yum install -y python36
 RUN /usr/bin/pip3.6 install --upgrade pip
 # Install the necessary Python packages:
 RUN /usr/bin/pip3.6 install datetime && \
