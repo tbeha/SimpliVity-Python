@@ -16,3 +16,7 @@ If you do have SimpliVity cluster with the following OmniStack versions:
 - 3.7.8
 
 then please use the branch v3.0: https://github.com/tbeha/SimpliVity-Python/blob/v3.0/README.md
+
+Docker images with Python and the SimpliVity RestAPI class installed are available at:
+- tb1378/svtcentpy  (CentOS)
+- tb1378/svtupupy   (Ubuntu)
