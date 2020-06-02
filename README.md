@@ -1,6 +1,6 @@
 # SimpliVity-Python
 
-Python class for the SimpliVity Rest API
+Docker builds (Ubuntu and CentOS) for SimpliVity container that use the Python class for the SimpliVity Rest API and a base VMware RestAPI class. 
 
 The master branch contains the most recent SimpliVity Python class, that is currently under test with OmniStack v4.0.0.
 
