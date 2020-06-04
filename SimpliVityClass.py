@@ -40,10 +40,10 @@ v4.0.0 of the SimpliVity Class includes the complete parameter list of each
 possible RestAPI call. The parameters must be provided as an array of key-value pairs, 
 where the key is the parameter name.
 
-The SimpliVity Class version will be kept in sync with the OmniStack releases. I.e. this v4.0.0 version
-of the SimpliVity Class is based and tested against the RestAPI of OmniStack 4.0.0
+This SimpliVity Class is tested against the RestAPI of OmniStack 4.0.0 and 4.0.1
 
-Attention: Work in progress !!!
+The calls will work with the default limit of 500. If you do have more than 500 entries, then you need to handle
+this in your code by either raising the limit (optional parameter) or recursive calls with offset. 
 
 """
 
@@ -355,7 +355,7 @@ class SimpliVity:
                 if i > 0: url = url + '&' 
                 url = url+x+'='+parameters[x]
                 i += 1
-        return self.DoGet(url)
+        return self.doGet(url)
 
     def GetClusterGroup(self, parameters=None):
         """
