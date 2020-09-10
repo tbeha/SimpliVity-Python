@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Python Class Library for the HPE SimpliVity Rest API v 4.0.0
+Python Class Library for the HPE SimpliVity Rest API v 4.0.1
 
-Copyright (c) 2019 Thomas Beha, February 2020
+Copyright (c) 2019 Thomas Beha, September 2020
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -72,9 +72,9 @@ class SimpliVity:
             raise SvtError('doGet '+url,response.status_code,response.json())
 
     def doPost(self, url, body=None):
+        headers = self.headers
+        headers['Content-Type'] = self.jsonversion
         if body:
-            headers = self.headers
-            headers['Content-Type'] = self.jsonversion
             response = requests.post(url,data=body, verify=False, headers=headers)
         else:
             response = requests.post(url, verify=False, headers=self.headers)
