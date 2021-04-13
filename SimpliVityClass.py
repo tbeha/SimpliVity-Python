@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Python Class Library for the HPE SimpliVity Rest API v 4.0.1
+Python Class Library for the HPE SimpliVity Rest API v 4.1.0
 
-Copyright (c) 2019 Thomas Beha, September 2020
+Copyright (c) 2021 Thomas Beha, April 2021
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -36,14 +36,14 @@ RestAPI Response codes:
     504     Gateway timeout
     551     No backup found 
 
-v4.0.0 of the SimpliVity Class includes the complete parameter list of each
+v4.1.0 of the SimpliVity Class includes the complete parameter list of each
 possible RestAPI call. The parameters must be provided as an array of key-value pairs, 
 where the key is the parameter name.
 
-This SimpliVity Class is tested against the RestAPI of OmniStack 4.0.0 and 4.0.1
+The SimpliVity Class version will be kept in sync with the OmniStack releases. I.e. this v4.1.0 version
+of the SimpliVity Class is based and tested against the RestAPI of OmniStack 4.1.0
 
-The calls will work with the default limit of 500. If you do have more than 500 entries, then you need to handle
-this in your code by either raising the limit (optional parameter) or recursive calls with offset. 
+Attention: Work in progress !!!
 
 """
 
@@ -72,12 +72,13 @@ class SimpliVity:
             raise SvtError('doGet '+url,response.status_code,response.json())
 
     def doPost(self, url, body=None):
+        
         headers = self.headers
         headers['Content-Type'] = self.jsonversion
         if body:
             response = requests.post(url,data=body, verify=False, headers=headers)
         else:
-            response = requests.post(url, verify=False, headers=self.headers)
+            response = requests.post(url, verify=False, headers=headers)
         if((response.status_code == 200) or (response.status_code == 201) or (response.status_code == 202)):
             return response.json()
         else:
@@ -483,7 +484,7 @@ class SimpliVity:
         return self.doGet(url)         
         
     def GetPolicyId(self, policyname):
-        return( self.GetPolicy({'"name":"'+policyname+'"'})['policies'][0]['id'] )
+        return( self.GetPolicy({"name":policyname})['policies'][0]['id'] )
         
         
     def DefinePolicy(self, policyname):       
@@ -495,18 +496,19 @@ class SimpliVity:
     def DeletePolicy(self, policyname):
         return self.doDelete(self.url+'policies/'+self.GetPolicyId(policyname))
         
-    def AddPolicyRule(self, policy_id, destination, frequency=1440, retention=1440, days='All', endTime='00:00', startTime='00:00', replace=False, appConsistent="false", consistencyType='NONE'):
-        body='[ \n {\n\
-    "destination_id": "'+ destination +'",\n\
-    "frequency": '+ str(frequency) + ',\n\
-    "retention": '+ str(retention) + ',\n\
-    "days": "'+ days + '",\n\
-    "start_time": "'+ startTime + '",\n\
-    "end_time": "'+ endTime + '",\n\
-    "application_consistent": '+ str(appConsistent) +',\n\
-    "consistency_type": "'+ consistencyType +'"\n\
- }\n]'        
-        return self.doPost(self.url+'policies/'+policy_id+'/rules?replace_all_rules='+str(replace), body)
+    def AddPolicyRule(self, policy_id, replace=False, parameters=None):
+        if parameters:
+            i=0
+            body='[ \n {\n '
+            for x in parameters:
+                if i>0:
+                    body = body +',\n '
+                body = body + ' "'+ x  + '": "'+ parameters[x] + '"'
+                i += 1
+            body = body + '\n }\n]'          
+            return self.doPost(self.url+'policies/'+policy_id+'/rules?replace_all_rules='+str(replace), body)
+        else:
+            return(400)
 
     def DeletePolicyRule(self, policy_id, rule_id):       
         return self.doDelete(self.url+'policies/'+policy_id+'/rules/'+rule_id)
@@ -516,18 +518,23 @@ class SimpliVity:
     def GetExternalStore(self, parameters=None):
         """
         Parameters:
-           name, omnistack_cluster_id, management_ip, cluster_group_id, fields, limit, offset, case, sort, order
+           name, omnistack_cluster_id, management_ip, cluster_group_id, fields, offset, case, sort, order
+        
+        Need to adjust the self.jsonversion in order to get this command running without errors!
            
         """
         url = self.url + 'external_stores'
+        self.headers['Accept']='application/json'
         if parameters:
             url = url+'?'
             i = 0
             for x in parameters:
                 if i > 0: url = url + '&' 
                 url = url+x+'='+parameters[x]
-                i += 1        
-        return self.doGet(url)         
+                i += 1 
+        response = self.doGet(url)
+        self.headers['Accept']=self.jsonversion
+        return response         
 
     def RegisterExternalStore(self, parameters):
         """
