@@ -3,6 +3,7 @@
 A python class for SimpliVity RestAPI.  
 
 The master branch contains the most recent SimpliVity Python class (v4.0), that is tested with OmniStack versions:
+- 4.1.0
 - 4.0.1
 - 4.0
 
@@ -18,7 +19,3 @@ If you do have SimpliVity cluster with the following OmniStack versions:
 - 3.7.8
 
 then please use the branch v3.0: https://github.com/tbeha/SimpliVity-Python/blob/v3.0/README.md
-
-Docker images with Python and the SimpliVity RestAPI class installed are available at DockerHub (https://hub.docker.com/):
-- tb1378/svtcentpy  (CentOS, https://hub.docker.com/repository/docker/tb1378/svtcentpy)
-- tb1378/svtupupy   (Ubuntu, https://hub.docker.com/repository/docker/tb1378/svtubupy)
