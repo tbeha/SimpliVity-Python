@@ -1,0 +1,24 @@
+apiVersion: v1 
+kind: ConfigMap 
+metadata: 
+  name: svtinfrastructure-xml 
+  namespace: prometheus 
+data: 
+  svtconnector.key: |- 
+    wuStY7Vdd3O-DUiFpNECzsAwmI86CfkK98gkJQOR8Rc=
+  svtconnector.xml: |- 
+    <data> 
+      <username>SvtCollector@vsphere.local</username>
+      <user>gAAAAABkPQGnjMCkoiTPkuAdTQni1-yP3NPhD6lRRfNBaaLD3WqCU2llf4cRLmQc6_jt-Oq85zHTefwoMizb-k9IjMWjCsoVPhaL6jvtFHLKuThqsV9w43g=</user>
+      <password>gAAAAABkPQGnjRwPL6WnS7kVm0wWoMlLY8xQb7-VM2-t0_gvWtqEaYAVM_6mwR4aVTX5kIdkrpXz7c-BXFHVzVx5L2As2RGbEg==</password>
+      <ovc>10.1.44.32</ovc>
+      <timerange>30</timerange>
+      <resolution>SECOND</resolution>
+      <monitoringintervall>30</monitoringintervall>
+      <logfile>svtinfrastructure.log</logfile>
+      <port>9091</port>
+      <monitor>fcn</monitor>
+      <cluster></cluster>
+      <limit>500</limit>
+      <offset>-1</offset>
+    </data>

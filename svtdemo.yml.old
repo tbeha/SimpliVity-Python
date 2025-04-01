@@ -1,0 +1,24 @@
+apiVersion: v1 
+kind: ConfigMap 
+metadata: 
+  name: svtdemo-xml 
+  namespace: svtprometheus 
+data: 
+  svtconnector.key: |- 
+    Q6EK9JH6IwhVjikduHsgmB8TdTmywpcGWU--7pbz75g=
+  svtconnector.xml: |- 
+    <data> 
+      <username>SvtCollector@vsphere.local</username>
+      <user>gAAAAABfF_nPecQzeeLCXAGdHBSdT_yeqhJw90kVma1-DtwPnGKfwQ_sg8hborNAjNTEDZjFxfmARL5pc_4rPGwObVcoAuCrQEHsKFEojsP2DIJkYwOz-s8=</user>
+      <password>gAAAAABfF_nP3nW7zl8F8iZ6bN7f1HTax90LX9u_gKhLz4LJOp06D92d6MMJdpPPXCzDdLfjRuC-Eebg5MLOEUJV1MDvfPNj0A==</password>
+      <ovc>10.0.40.15</ovc>
+      <timerange>30</timerange>
+      <resolution>SECOND</resolution>
+      <monitoringintervall>30</monitoringintervall>
+      <logfile>svtdemo.log</logfile>
+      <port>9091</port>
+      <monitor>fcn</monitor>
+      <cluster></cluster>
+      <limit>500</limit>
+      <offset>-1</offset>
+    </data>

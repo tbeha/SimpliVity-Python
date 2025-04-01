@@ -1,0 +1,55 @@
+2025-03-31 14:58:04.099191: Logfile opened 
+2025-03-31 14:58:04.099248: Path:    /opt/svt/ 
+2025-03-31 14:58:04.099287: Keyfile: /opt/svt/data/svtconnector.key 
+2025-03-31 14:58:04.099307: XMLfile: /opt/svt/data/svtconnector.xml 
+2025-03-31 14:58:04.182853: Open a connection to the SimpliVity systems 
+2025-03-31 14:58:04.183944: Open Connection to SimpliVity 
+2025-03-31 14:58:09.060762: Connection to SimpliVity is open 
+2025-03-31 14:58:10.425920: Logfile closed 
+2025-04-01 10:32:44.012276: Logfile opened 
+2025-04-01 10:32:44.012328: Path:    /opt/svt/ 
+2025-04-01 10:32:44.012368: Keyfile: /opt/svt/data/svtconnector.key 
+2025-04-01 10:32:44.012389: XMLfile: /opt/svt/data/svtconnector.xml 
+2025-04-01 10:32:44.086046: Open a connection to the SimpliVity systems 
+2025-04-01 10:32:44.087261: Open Connection to SimpliVity 
+2025-04-01 10:32:50.416878: Connection to SimpliVity is open 
+2025-04-01 10:32:50.416963: Logfile closed 
+2025-04-01 10:33:11.574460: Logfile opened 
+2025-04-01 10:33:11.574516: KeyError 
+2025-04-01 10:33:11.574555: 'SECONDARY' 
+2025-04-01 10:33:11.574607: Logfile closed 
+2025-04-01 10:34:24.144208: Logfile opened 
+2025-04-01 10:34:24.144277: KeyError 
+2025-04-01 10:34:24.144317: 'SECONDARY' 
+2025-04-01 10:34:24.144359: Logfile closed 
+2025-04-01 10:37:25.508598: Logfile opened 
+2025-04-01 10:37:27.815513: KeyError 
+2025-04-01 10:37:28.934743: 'SECONDARY' 
+2025-04-01 10:37:30.011845: Logfile closed 
+2025-04-01 10:39:02.703454: Logfile opened 
+2025-04-01 10:39:02.703509: Path:    /opt/svt/ 
+2025-04-01 10:39:02.703569: Keyfile: /opt/svt/data/svtconnector.key 
+2025-04-01 10:39:02.703596: XMLfile: /opt/svt/data/svtconnector.xml 
+2025-04-01 10:39:02.790063: Open a connection to the SimpliVity systems 
+2025-04-01 10:39:02.792486: Open Connection to SimpliVity 
+2025-04-01 10:39:08.262837: Connection to SimpliVity is open 
+2025-04-01 10:39:08.262911: Logfile closed 
+2025-04-01 13:03:48.960624: Logfile opened 
+2025-04-01 13:03:48.960675: KeyError 
+2025-04-01 13:03:48.960716: 'SECONDARY' 
+2025-04-01 13:03:48.960737: Logfile closed 
+2025-04-01 13:03:52.581270: Logfile opened 
+2025-04-01 13:03:52.581306: doGet https://10.1.40.18/api/omnistack_clusters?show_optional_fields=true&limit=500&offset=0 
+2025-04-01 13:03:52.581353: 401 
+2025-04-01 13:03:52.581390: {'error': 'invalid_token', 'error_description': 'Access token expired due to inactivity: 6bc76f87-80f0-4d49-a879-089c4f4831e5'} 
+2025-04-01 13:03:52.581428: Open Connection to SimpliVity 
+2025-04-01 13:03:52.722176: Connection to SimpliVity is open 
+2025-04-01 13:03:52.722223: Logfile closed 
+2025-04-01 13:42:55.375900: Logfile opened 
+2025-04-01 13:42:55.375954: Path:    /opt/svt/ 
+2025-04-01 13:42:55.375993: Keyfile: /opt/svt/data/svtconnector.key 
+2025-04-01 13:42:55.377298: XMLfile: /opt/svt/data/svtconnector.xml 
+2025-04-01 13:42:55.468536: Open a connection to the SimpliVity systems 
+2025-04-01 13:42:55.469633: Open Connection to SimpliVity 
+2025-04-01 13:42:55.621766: Connection to SimpliVity is open 
+2025-04-01 13:42:55.621849: Logfile closed 
