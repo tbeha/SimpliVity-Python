@@ -5,8 +5,8 @@
 FROM ubuntu
 #
 LABEL maintainer="Thomas Beha"
-LABEL version="4.0"
-LABEL copyright="Thomas Beha, 2020"
+LABEL version="4.2"
+LABEL copyright="Thomas Beha, 2025"
 LABEL license="GNU General Public License v3"
 LABEL DESCRIPTION="SimpliVity Connector POD based on Ubuntu"
 #
@@ -23,7 +23,7 @@ RUN /usr/bin/pip3 install requests && \
 # copy the necessary python files to the container
 RUN mkdir /opt/svt
 COPY SimpliVityClass.py /opt/svt
-COPY svtPromConnector.v4.1.py /opt/svt/svtpromconnector.py
+COPY svtPromConnector.v4.2.py /opt/svt/svtpromconnector.py
 #COPY SvtConnector.key /opt/svt/data/svtconnector.key  # will be transferred to the container as K8s configmap
 #COPY SvtConnector.xml /opt/svt/data/svtconnector.xml  # will be transferred to the container as K8s configmap
 # Start the collector
